@@ -1,17 +1,1 @@
-.hide_me {
-    display: none!important;
-}
-
-.single-welcome-slide .main-bg-img {
-    background-size: 50%;
-    background-position: center;
-}
-
-.pokemons_list_cover {
-    padding: 50px 0;
-}
-
-.pokemons_list_cover .owl-item .model-thumbnail img {
-    height: 400px;
-    object-fit: scale-down;
-}
+@import "tailwindcss";
