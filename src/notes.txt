@@ -1,0 +1,14 @@
+
+
+
+- Home
+
+- Pokemon listing
+
+- Pokemon single
+
+- Pokemon types
+
+- who's that pokemon
+
+
