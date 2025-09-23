@@ -1,1 +1,20 @@
 @import "tailwindcss";
+
+.show_box {
+    position: relative;
+}
+
+.hide_me {
+    display: none;
+}
+
+
+.poke_hero_img_box {
+    display: flex!important;
+    align-items: center;
+    justify-content: center;
+}
+
+.poke_hero_img_box .hero_poke_img {
+    position: relative;
+}
