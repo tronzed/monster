@@ -17,7 +17,7 @@ function App() {
 
 
   const getPokeList = async () => {
-    const res = await fetch(`https://pokeapi.co/api/v2/pokemon`);
+    const res = await fetch(`https://pokeapi.co/api/v2/pokemon/?limit=9/`);
     const data = await res.json();
     setPokeList(data?.results);
   }
@@ -40,8 +40,8 @@ function App() {
         <div className="bb ze ki xn 2xl:ud-px-0 oo wf yf i">
           <div className="vd to/4 tc wf yf">
             <a href="index.html">
-              <img className="om" src="src/assets/images/logo-light.svg" alt="Logo Light" />
-              <img className="xc nm" src="src/assets/images/logo-dark.svg" alt="Logo Dark" />
+              <img className="om" src="public/images/logo-light.svg" alt="Logo Light" />
+              <img className="xc nm" src="public/images/logo-dark.svg" alt="Logo Dark" />
             </a>
 
             {/* Hamburger Toggle BTN */}
@@ -104,7 +104,7 @@ function App() {
                       fill="" />
                   </svg>
                   {/* Icon Sun */}
-                  <img className="xc nm" src="src/assets/images/icon-moon.svg" alt="Moon" />
+                  <img className="xc nm" src="public/images/icon-moon.svg" alt="Moon" />
                 </label>
               </div>
 
@@ -124,10 +124,10 @@ function App() {
         <section className="gj do ir hj sp jr i pg">
           {/* Hero Images */}
           <div className="poke_hero_img_box xc fn zd/2 2xl:ud-w-187.5 bd 2xl:ud-h-171.5 h q r">
-            <img src="src/assets/images/shape-01.svg" alt="shape" className="xc 2xl:ud-block h t -ud-left-[10%] ua" />
-            <img src="src/assets/images/shape-02.svg" alt="shape" className="xc 2xl:ud-block h u p va" />
-            <img src="src/assets/images/shape-03.svg" alt="shape" className="xc 2xl:ud-block h v w va" />
-            <img src="src/assets/images/shape-04.svg" alt="shape" className="h q r" />
+            <img src="public/images/shape-01.svg" alt="shape" className="xc 2xl:ud-block h t -ud-left-[10%] ua" />
+            <img src="public/images/shape-02.svg" alt="shape" className="xc 2xl:ud-block h u p va" />
+            <img src="public/images/shape-03.svg" alt="shape" className="xc 2xl:ud-block h v w va" />
+            <img src="public/images/shape-04.svg" alt="shape" className="h q r" />
             <img className="hero_poke_img" src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokeData?.id}.png`} alt="Woman" />
             {/* <img className="hero_poke_img" src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/${pokeData?.id}.png`} alt="Woman" /> */}
             {/* <img className="hero_poke_img" src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${pokeData?.id}.svg`} alt="Woman" /> */}
@@ -137,11 +137,11 @@ function App() {
           <div className="bb ze ki xn 2xl:ud-px-0">
             <div className="tc _o">
               <div className="animate_left jn/2">
-                <h1 className="fk vj zp or kk wm wb">{pokeData?.name}</h1>
+                <h1 className="fk vj zp or kk wm wb poke_name_hero">{pokeData?.name}</h1>
                 <p className="fq">{pokeData?.flavor_text_entries[0]?.flavor_text}</p>
 
                 <div className="tc tf yo zf mb">
-                  <a href="/" className="ek jk lk gh gi hi rg ml il vc _d _l">Get Started Now</a>
+                  <a href="/" className="ek jk lk gh gi hi rg ml il vc _d _l">Explore {pokeData?.name}</a>
 
                   <span className="hide_me">
                     <a href="/" className="inline-block ek xj kk wm"> Call us (0123) 456 – 789 </a>
@@ -161,7 +161,7 @@ function App() {
               {/* Small Features Item */}
               <div className="animate_top kn to/3 tc cg oq">
                 <div className="tc wf xf cf ae cd rg mh">
-                  <img src="src/assets/images/icon-01.svg" alt="Icon" />
+                  <img src="public/images/icon-01.svg" alt="Icon" />
                 </div>
                 <div>
                   <h4 className="ek yj go kk wm xb">24/7 Support</h4>
@@ -172,7 +172,7 @@ function App() {
               {/* Small Features Item */}
               <div className="animate_top kn to/3 tc cg oq">
                 <div className="tc wf xf cf ae cd rg nh">
-                  <img src="src/assets/images/icon-02.svg" alt="Icon" />
+                  <img src="public/images/icon-02.svg" alt="Icon" />
                 </div>
                 <div>
                   <h4 className="ek yj go kk wm xb">Take Ownership</h4>
@@ -183,7 +183,7 @@ function App() {
               {/* Small Features Item */}
               <div className="animate_top kn to/3 tc cg oq">
                 <div className="tc wf xf cf ae cd rg oh">
-                  <img src="src/assets/images/icon-03.svg" alt="Icon" />
+                  <img src="public/images/icon-03.svg" alt="Icon" />
                 </div>
                 <div>
                   <h4 className="ek yj go kk wm xb">Team Work</h4>
@@ -202,14 +202,14 @@ function App() {
               {/* About Images */}
               <div className="animate_left xc gn gg jn/2 i">
                 <div>
-                  <img src="src/assets/images/shape-05.svg" alt="Shape" className="h -ud-left-5 x" />
-                  <img src="src/assets/images/about-01.png" alt="About" className="ib" />
-                  <img src="src/assets/images/about-02.png" alt="About" />
+                  <img src="public/images/shape-05.svg" alt="Shape" className="h -ud-left-5 x" />
+                  <img src="public/images/about-01.png" alt="About" className="ib" />
+                  <img src="public/images/about-02.png" alt="About" />
                 </div>
                 <div>
-                  <img src="src/assets/images/shape-06.svg" alt="Shape" />
-                  <img src="src/assets/images/about-03.png" alt="About" className="ob gb" />
-                  <img src="src/assets/images/shape-07.svg" alt="Shape" className="bb" />
+                  <img src="public/images/shape-06.svg" alt="Shape" />
+                  <img src="public/images/about-03.png" alt="About" className="ob gb" />
+                  <img src="public/images/shape-07.svg" alt="Shape" className="bb" />
                 </div>
               </div>
 
@@ -223,7 +223,7 @@ function App() {
                 <a href="https://www.youtube.com/watch?v=xcJtL7QggTI" data-fslightbox className="vc wf hg mb">
                   <span className="tc wf xf be dd rg i gh ua">
                     <span className="nf h vc yc vd rg gh qk -ud-z-1"></span>
-                    <img src="src/assets/images/icon-play.svg" alt="Play" />
+                    <img src="public/images/icon-play.svg" alt="Play" />
                   </span>
                   <span className="kk">SEE HOW WE WORK</span>
                 </a>
@@ -237,15 +237,15 @@ function App() {
         <section className="i pg ji gp uq">
           {/* Bg Shapes */}
           <span className="rc h s r vd fd/5 fh rm"></span>
-          <img src="src/assets/images/shape-08.svg" alt="Shape Bg" className="h q r" />
-          <img src="src/assets/images/shape-09.svg" alt="Shape" className="of h y z/2" />
-          <img src="src/assets/images/shape-10.svg" alt="Shape" className="h _ aa" />
-          <img src="src/assets/images/shape-11.svg" alt="Shape" className="of h m ba" />
+          <img src="public/images/shape-08.svg" alt="Shape Bg" className="h q r" />
+          <img src="public/images/shape-09.svg" alt="Shape" className="of h y z/2" />
+          <img src="public/images/shape-10.svg" alt="Shape" className="h _ aa" />
+          <img src="public/images/shape-11.svg" alt="Shape" className="of h m ba" />
 
           {/* Section Title Start */}
           <div>
             <div className="show_box bb ze rj ki xn vq">
-              <h2 className="fk vj pr kk wm on/5 gq/2 bb _b">Meet With Our Creative Dedicated Team</h2>
+              <h2 className="fk vj pr kk wm on/5 gq/2 bb _b">Explore Pokemon</h2>
               <p className="bb on/5 wo/5 hq">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In convallis tortor eros. Donec vitae tortor lacus. Phasellus aliquam ante in maximus.</p>
             </div>
           </div>
@@ -341,42 +341,42 @@ function App() {
             <div className="wc qf pn xo ng">
               {/* Service Item */}
               <div className="animate_top sg oi pi zq ml il am cn _m">
-                <img src="src/assets/images/icon-04.svg" alt="Icon" />
+                <img src="public/images/icon-04.svg" alt="Icon" />
                 <h4 className="ek zj kk wm nb _b">Crafted for Startups</h4>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In convallis tortor.</p>
               </div>
 
               {/* Service Item */}
               <div className="animate_top sg oi pi zq ml il am cn _m">
-                <img src="src/assets/images/icon-05.svg" alt="Icon" />
+                <img src="public/images/icon-05.svg" alt="Icon" />
                 <h4 className="ek zj kk wm nb _b">High-quality Design</h4>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In convallis tortor.</p>
               </div>
 
               {/* Service Item */}
               <div className="animate_top sg oi pi zq ml il am cn _m">
-                <img src="src/assets/images/icon-06.svg" alt="Icon" />
+                <img src="public/images/icon-06.svg" alt="Icon" />
                 <h4 className="ek zj kk wm nb _b">All Essential Sections</h4>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In convallis tortor.</p>
               </div>
 
               {/* Service Item */}
               <div className="animate_top sg oi pi zq ml il am cn _m">
-                <img src="src/assets/images/icon-07.svg" alt="Icon" />
+                <img src="public/images/icon-07.svg" alt="Icon" />
                 <h4 className="ek zj kk wm nb _b">Speed Optimized</h4>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In convallis tortor.</p>
               </div>
 
               {/* Service Item */}
               <div className="animate_top sg oi pi zq ml il am cn _m">
-                <img src="src/assets/images/icon-05.svg" alt="Icon" />
+                <img src="public/images/icon-05.svg" alt="Icon" />
                 <h4 className="ek zj kk wm nb _b">Fully Customizable</h4>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In convallis tortor.</p>
               </div>
 
               {/* Service Item */}
               <div className="animate_top sg oi pi zq ml il am cn _m">
-                <img src="src/assets/images/icon-06.svg" alt="Icon" />
+                <img src="public/images/icon-06.svg" alt="Icon" />
                 <h4 className="ek zj kk wm nb _b">Regular Updates</h4>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In convallis tortor.</p>
               </div>
@@ -389,10 +389,10 @@ function App() {
 
         {/* ===== Counter Start ===== */}
         <section className="i pg qh rm ji hp hide_me">
-          <img src="src/assets/images/shape-11.svg" alt="Shape" className="of h ga ha ke" />
-          <img src="src/assets/images/shape-07.svg" alt="Shape" className="h ia o ae jf" />
-          <img src="src/assets/images/shape-14.svg" alt="Shape" className="h ja ka" />
-          <img src="src/assets/images/shape-15.svg" alt="Shape" className="h q p" />
+          <img src="public/images/shape-11.svg" alt="Shape" className="of h ga ha ke" />
+          <img src="public/images/shape-07.svg" alt="Shape" className="h ia o ae jf" />
+          <img src="public/images/shape-14.svg" alt="Shape" className="h ja ka" />
+          <img src="public/images/shape-15.svg" alt="Shape" className="h q p" />
 
           <div className="bb ze i va ki xn br">
             <div className="tc uf sn tn xf un gg">
@@ -435,28 +435,28 @@ function App() {
           <div className="bb ze ah ch pm hj xp ki xn 2xl:ud-px-49 bc">
             <div className="wc rf qn zf cp kq xf wf">
               <a href="/" className="rc animate_top">
-                <img className="th wl ml il zl om" src="src/assets/images/brand-light-01.svg" alt="Clients" />
-                <img className="xc sk ml il zl nm" src="src/assets/images/brand-dark-01.svg" alt="Clients" />
+                <img className="th wl ml il zl om" src="public/images/brand-light-01.svg" alt="Clients" />
+                <img className="xc sk ml il zl nm" src="public/images/brand-dark-01.svg" alt="Clients" />
               </a>
               <a href="/" className="rc animate_top">
-                <img className="tk ml il zl om" src="src/assets/images/brand-light-02.svg" alt="Clients" />
-                <img className="xc sk ml il zl nm" src="src/assets/images/brand-dark-02.svg" alt="Clients" />
+                <img className="tk ml il zl om" src="public/images/brand-light-02.svg" alt="Clients" />
+                <img className="xc sk ml il zl nm" src="public/images/brand-dark-02.svg" alt="Clients" />
               </a>
               <a href="/" className="rc animate_top">
-                <img className="tk ml il zl om" src="src/assets/images/brand-light-03.svg" alt="Clients" />
-                <img className="xc sk ml il zl nm" src="src/assets/images/brand-dark-03.svg" alt="Clients" />
+                <img className="tk ml il zl om" src="public/images/brand-light-03.svg" alt="Clients" />
+                <img className="xc sk ml il zl nm" src="public/images/brand-dark-03.svg" alt="Clients" />
               </a>
               <a href="/" className="rc animate_top">
-                <img className="tk ml il zl om" src="src/assets/images/brand-light-04.svg" alt="Clients" />
-                <img className="xc sk ml il zl nm" src="src/assets/images/brand-dark-04.svg" alt="Clients" />
+                <img className="tk ml il zl om" src="public/images/brand-light-04.svg" alt="Clients" />
+                <img className="xc sk ml il zl nm" src="public/images/brand-dark-04.svg" alt="Clients" />
               </a>
               <a href="/" className="rc animate_top">
-                <img className="tk ml il zl om" src="src/assets/images/brand-light-05.svg" alt="Clients" />
-                <img className="xc sk ml il zl nm" src="src/assets/images/brand-dark-05.svg" alt="Clients" />
+                <img className="tk ml il zl om" src="public/images/brand-light-05.svg" alt="Clients" />
+                <img className="xc sk ml il zl nm" src="public/images/brand-dark-05.svg" alt="Clients" />
               </a>
               <a href="/" className="rc animate_top">
-                <img className="tk ml il zl om" src="src/assets/images/brand-light-06.svg" alt="Clients" />
-                <img className="xc sk ml il zl nm" src="src/assets/images/brand-dark-06.svg" alt="Clients" />
+                <img className="tk ml il zl om" src="public/images/brand-light-06.svg" alt="Clients" />
+                <img className="xc sk ml il zl nm" src="public/images/brand-dark-06.svg" alt="Clients" />
               </a>
             </div>
           </div>
@@ -483,7 +483,7 @@ function App() {
               {/* Blog Item */}
               <div className="animate_top sg vk rm xm">
                 <div className="c rc i z-1 pg">
-                  <img className="w-full" src="src/assets/images/blog-01.png" alt="Blog" />
+                  <img className="w-full" src="public/images/blog-01.png" alt="Blog" />
 
                   <div className="im h r s df vd yc wg tc wf xf al hh/20 nl il z-10">
                     <a href="./blog-single.html" className="vc ek rg lk gh sl ml il gi hi">Read More</a>
@@ -493,11 +493,11 @@ function App() {
                 <div className="yh">
                   <div className="tc uf wf ag jq">
                     <div className="tc wf ag">
-                      <img src="src/assets/images/icon-man.svg" alt="User" />
+                      <img src="public/images/icon-man.svg" alt="User" />
                       <p>Musharof Chy</p>
                     </div>
                     <div className="tc wf ag">
-                      <img src="src/assets/images/icon-calender.svg" alt="Calender" />
+                      <img src="public/images/icon-calender.svg" alt="Calender" />
                       <p>25 Dec, 2025</p>
                     </div>
                   </div>
@@ -510,7 +510,7 @@ function App() {
               {/* Blog Item */}
               <div className="animate_top sg vk rm xm">
                 <div className="c rc i z-1 pg">
-                  <img className="w-full" src="src/assets/images/blog-02.png" alt="Blog" />
+                  <img className="w-full" src="public/images/blog-02.png" alt="Blog" />
 
                   <div className="im h r s df vd yc wg tc wf xf al hh/20 nl il z-10">
                     <a href="./blog-single.html" className="vc ek rg lk gh sl ml il gi hi">Read More</a>
@@ -520,11 +520,11 @@ function App() {
                 <div className="yh">
                   <div className="tc uf wf ag jq">
                     <div className="tc wf ag">
-                      <img src="src/assets/images/icon-man.svg" alt="User" />
+                      <img src="public/images/icon-man.svg" alt="User" />
                       <p>Musharof Chy</p>
                     </div>
                     <div className="tc wf ag">
-                      <img src="src/assets/images/icon-calender.svg" alt="Calender" />
+                      <img src="public/images/icon-calender.svg" alt="Calender" />
                       <p>25 Dec, 2025</p>
                     </div>
                   </div>
@@ -537,7 +537,7 @@ function App() {
               {/* Blog Item */}
               <div className="animate_top sg vk rm xm">
                 <div className="c rc i z-1 pg">
-                  <img className="w-full" src="src/assets/images/blog-03.png" alt="Blog" />
+                  <img className="w-full" src="public/images/blog-03.png" alt="Blog" />
 
                   <div className="im h r s df vd yc wg tc wf xf al hh/20 nl il z-10">
                     <a href="./blog-single.html" className="vc ek rg lk gh sl ml il gi hi">Read More</a>
@@ -547,11 +547,11 @@ function App() {
                 <div className="yh">
                   <div className="tc uf wf ag jq">
                     <div className="tc wf ag">
-                      <img src="src/assets/images/icon-man.svg" alt="User" />
+                      <img src="public/images/icon-man.svg" alt="User" />
                       <p>Musharof Chy</p>
                     </div>
                     <div className="tc wf ag">
-                      <img src="src/assets/images/icon-calender.svg" alt="Calender" />
+                      <img src="public/images/icon-calender.svg" alt="Calender" />
                       <p>25 Dec, 2025</p>
                     </div>
                   </div>
@@ -569,7 +569,7 @@ function App() {
         {/* ===== CTA Start ===== */}
         <section className="i pg gh ji">
           {/* Bg Shape */}
-          <img className="h p q" src="src/assets/images/shape-16.svg" alt="Bg Shape" />
+          <img className="h p q" src="public/images/shape-16.svg" alt="Bg Shape" />
 
           <div className="bb ye i z-10 ki xn dr">
             <div className="tc uf sn tn un gg">
@@ -601,8 +601,8 @@ function App() {
             <div className="tc uf ap gg fp">
               <div className="animate_top zd/2 to/4">
                 <a href="index.html">
-                  <img src="src/assets/images/logo-light.svg" alt="Logo" className="om" />
-                  <img src="src/assets/images/logo-dark.svg" alt="Logo" className="xc nm" />
+                  <img src="public/images/logo-light.svg" alt="Logo" className="om" />
+                  <img src="public/images/logo-dark.svg" alt="Logo" className="xc nm" />
                 </a>
 
                 <p className="lc fb">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>

@@ -18,3 +18,7 @@
 .poke_hero_img_box .hero_poke_img {
     position: relative;
 }
+
+.poke_name_hero {
+    text-transform: capitalize;
+}
