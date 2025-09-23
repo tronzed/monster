@@ -305,7 +305,7 @@ function App() {
                         </div>
                       </div>
                       <h4 className="yj go kk wm ob zb">{item?.name}</h4>
-                      <p>Product Manager</p>
+                      <p>Pokemon</p>
                     </div>
 
 
