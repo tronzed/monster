@@ -10,7 +10,7 @@ function ListPoke() {
 
     const getPokeList = async () => {
 
-        const res = await fetch(`https://pokeapi.co/api/v2/pokemon/?limit=90/`);
+        const res = await fetch(`https://pokeapi.co/api/v2/pokemon/?limit=100/`);
         const data = await res.json();
         setPokeList(data?.results);
 
