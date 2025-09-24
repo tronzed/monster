@@ -10,7 +10,7 @@
 
 
 .poke_hero_img_box {
-    display: flex!important;
+    display: flex !important;
     align-items: center;
     justify-content: center;
 }
@@ -21,4 +21,36 @@
 
 .poke_name_hero {
     text-transform: capitalize;
+}
+
+.hero_type_box {
+    text-transform: capitalize;
+}
+
+.hero_type_box:after {
+    content: "/";
+    display: inline-block;
+    margin: 0 8px;
+}
+
+.hero_type_box:last-child:after {
+    content: "";
+    display: none;
+}
+
+.features_box {
+    margin-bottom: 70px;
+}
+
+.item_read_more_btn {
+    color: #fff;
+}
+
+.img_type_box {
+    max-width: 120px;
+    margin: auto;
+}
+
+.type_item_box {
+    text-align: center;
 }
