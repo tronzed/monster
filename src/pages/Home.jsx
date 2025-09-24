@@ -154,7 +154,7 @@ function Home() {
                                     <>
                                         <div className="type_item_box animate_top sg oi pi zq ml il am cn _m">
                                             <div className='img_type_box'>
-                                                <img src={`public/images/types/${item?.name}.svg`} alt="Icon" />
+                                                <img src={`./images/types/${item?.name}.svg`} alt="Icon" />
                                             </div>
                                             <h4 className="ek zj kk wm nb _b">{item?.name}</h4>
                                             {/* <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In convallis tortor.</p> */}
