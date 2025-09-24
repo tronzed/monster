@@ -8,6 +8,23 @@ function Home() {
     const [pokeType, setPokeType] = useState();
     const [pokeList, setPokeList] = useState();
 
+    const [pokeData, setPokeData] = useState();
+    const [pokeDataMore, setPokeDataMore] = useState();
+
+    const getPokeData = async () => {
+        let num = Math.floor(Math.random() * (50 - 1 + 1)) + 1;
+        const res = await fetch(`https://pokeapi.co/api/v2/pokemon-species/${num}`);
+        const data = await res.json();
+        setPokeData(data);
+
+        const res2 = await fetch(`https://pokeapi.co/api/v2/pokemon/${num}`);
+        const data2 = await res2.json();
+        setPokeDataMore(data2);
+
+        console.log(num, 'num');
+
+    }
+
 
     const getPokeList = async () => {
 
@@ -23,6 +40,7 @@ function Home() {
 
 
     useEffect(() => {
+        getPokeData();
         getPokeList();
     }, []);
 
@@ -30,6 +48,89 @@ function Home() {
         <>
 
             <Header />
+
+
+            <section className="gj do ir hj sp jr i pg">
+                {/* Hero Images */}
+                <div className="poke_hero_img_box xc fn zd/2 2xl:ud-w-187.5 bd 2xl:ud-h-171.5 h q r">
+                    <img src="./images/shape-01.svg" alt="shape" className="xc 2xl:ud-block h t -ud-left-[10%] ua" />
+                    <img src="./images/shape-02.svg" alt="shape" className="xc 2xl:ud-block h u p va" />
+                    <img src="./images/shape-03.svg" alt="shape" className="xc 2xl:ud-block h v w va" />
+                    <img src="./images/shape-04.svg" alt="shape" className="h q r" />
+                    <img className="hero_poke_img" src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokeData?.id}.png`} alt="Woman" />
+                    {/* <img className="hero_poke_img" src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/${pokeData?.id}.png`} alt="Woman" /> */}
+                    {/* <img className="hero_poke_img" src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${pokeData?.id}.svg`} alt="Woman" /> */}
+                </div>
+
+                {/* Hero Content */}
+                <div className="bb ze ki xn 2xl:ud-px-0">
+                    <div className="tc _o">
+                        <div className="animate_left jn/2">
+                            <h1 className="fk vj zp or kk wm wb poke_name_hero">{pokeData?.name}</h1>
+                            <p className="fq">{pokeData?.flavor_text_entries[0]?.flavor_text}</p>
+
+                            <div className="tc tf yo zf mb">
+                                <a href="/" className="ek jk lk gh gi hi rg ml il vc _d _l">Explore {pokeData?.name}</a>
+
+                                <span className="hide_me">
+                                    <a href="/" className="inline-block ek xj kk wm"> Call us (0123) 456 – 789 </a>
+                                    <span className="inline-block">For any question or concern</span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+            <section id="features" className='features_box'>
+                <div className="bb ze ki yn 2xl:ud-px-12.5">
+                    <div className="tc uf zo xf ap zf bp mq">
+
+                        {/* Small Features Item */}
+                        <div className="animate_top kn to/3 tc cg oq">
+                            <div className="tc wf xf cf ae cd rg oh">
+                                <img src="./images/icon-03.svg" alt="Icon" />
+                            </div>
+                            <div>
+                                <h4 className="ek yj go kk wm xb">{
+                                    pokeDataMore?.types?.map((item, index) => (
+                                        <>
+
+                                            <span className='hero_type_box'>{item?.type?.name}</span>
+
+                                        </>
+                                    ))
+                                }</h4>
+                                <p>Types</p>
+                            </div>
+                        </div>
+                        {/* Small Features Item */}
+                        <div className="animate_top kn to/3 tc cg oq">
+                            <div className="tc wf xf cf ae cd rg mh">
+                                <img src="./images/icon-01.svg" alt="Icon" />
+                            </div>
+                            <div>
+                                <h4 className="ek yj go kk wm xb">{pokeDataMore?.height}</h4>
+                                <p>Height</p>
+                            </div>
+                        </div>
+
+                        {/* Small Features Item */}
+                        <div className="animate_top kn to/3 tc cg oq">
+                            <div className="tc wf xf cf ae cd rg nh">
+                                <img src="./images/icon-02.svg" alt="Icon" />
+                            </div>
+                            <div>
+                                <h4 className="ek yj go kk wm xb">{pokeDataMore?.weight}</h4>
+                                <p>Weight</p>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </section>
 
             <main>
 
@@ -363,11 +464,10 @@ function Home() {
                         <div className="tc uf sn tn un gg">
                             <div className="animate_left to/2">
                                 <h2 className="fk vj zp pr lk ac">
-                                    Join with 5000+ Startups Growing with Base.
+                                    Join 5000+ Trainers Catching and Growing with Base
                                 </h2>
                                 <p className="lk">
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quis nibh lorem. Duis sed odio lorem. In a
-                                    efficitur leo. Ut venenatis rhoncus.
+                                    Train your Pokémon, explore new regions, and battle like a pro. Level up your team, discover rare Pokémon, and become a true Pokémon Master!
                                 </p>
                             </div>
                             <div className="animate_right bf">
@@ -382,7 +482,7 @@ function Home() {
                 {/* ===== CTA End ===== */}
             </main>
 
-            <Footer/>
+            <Footer />
 
         </>
 

@@ -1,27 +1,12 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 function Header() {
 
 
-    const [pokeData, setPokeData] = useState();
-    const [pokeDataMore, setPokeDataMore] = useState();
-
-    const getPokeData = async () => {
-        let num = Math.floor(Math.random() * (50 - 1 + 1)) + 1;
-        const res = await fetch(`https://pokeapi.co/api/v2/pokemon-species/${num}`);
-        const data = await res.json();
-        setPokeData(data);
-
-        const res2 = await fetch(`https://pokeapi.co/api/v2/pokemon/${num}`);
-        const data2 = await res2.json();
-        setPokeDataMore(data2);
-
-        console.log(num, 'num');
-
-    }
+    
 
     useEffect(() => {
-        getPokeData();
     }, []);
 
     return (
@@ -32,10 +17,11 @@ function Header() {
                 data-todo-at-scroll-window="stickyMenu = (window.pageYOffset > 20) ? true : false">
                 <div className="bb ze ki xn 2xl:ud-px-0 oo wf yf i">
                     <div className="vd to/4 tc wf yf">
-                        <a href="index.html">
-                            <img className="om" src="./images/logo-light.svg" alt="Logo Light" />
-                            <img className="xc nm" src="./images/logo-dark.svg" alt="Logo Dark" />
-                        </a>
+                        <Link to="/">
+                            {/* <img className="om" src="./images/logo-light.svg" alt="Logo Light" />
+                            <img className="xc nm" src="./images/logo-dark.svg" alt="Logo Dark" /> */}
+                            <span className="logo_box">Monster</span>
+                        </Link>
 
                         {/* Hamburger Toggle BTN */}
                         <button className="po rc" data-todo-at-click="navigationOpen = !navigationOpen">
@@ -57,31 +43,9 @@ function Header() {
                     <div className="vd wo/4 sd qo f ho oo wf yf" data-todo-colon-className="{ 'd hh rm sr td ud qg ug jc yh': navigationOpen }">
                         <nav>
                             <ul className="tc _o sf yo cg ep">
-                                <li><a href="index.html" className="xl" data-todo-colon-className="{ 'mk': page === 'home' }">Home</a></li>
-                                <li><a href="index.html#features" className="xl">Features</a></li>
-                                <li className="c i" data-todo-x-data="{ dropdown: false }">
-                                    <a href="/" className="xl tc wf yf bg" data-todo-at-click-prevent="dropdown = !dropdown"
-                                        data-todo-colon-className="{ 'mk': page === 'blog-grid' || page === 'blog-single' || page === 'signin' || page === 'signup' || page === '404' }">
-                                        Pages
-
-                                        <svg data-todo-colon-className="{ 'wh': dropdown }" className="th mm we fd pf" xmlns="http://www.w3.org/2000/svg"
-                                            viewBox="0 0 512 512">
-                                            <path
-                                                d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z" />
-                                        </svg>
-                                    </a>
-
-                                    {/* Dropdown Start */}
-                                    <ul className="a" data-todo-colon-className="{ 'tc': dropdown }">
-                                        <li><a href="blog-grid.html" className="xl" data-todo-colon-className="{ 'mk': page === 'blog-grid' }">Blog Grid</a></li>
-                                        <li><a href="blog-single.html" className="xl" data-todo-colon-className="{ 'mk': page === 'blog-single' }">Blog Single</a></li>
-                                        <li><a href="signin.html" className="xl" data-todo-colon-className="{ 'mk': page === 'signin' }">Sign In</a></li>
-                                        <li><a href="signup.html" className="xl" data-todo-colon-className="{ 'mk': page === 'signup' }">Sign Up</a></li>
-                                        <li><a href="404.html" className="xl" data-todo-colon-className="{ 'mk': page === '404' }">404</a></li>
-                                    </ul>
-                                    {/* Dropdown End */}
-                                </li>
-                                <li><a href="index.html#support" className="xl">Support</a></li>
+                                <li><Link to="/" className="xl">Home</Link></li>
+                                <li><Link to="/all-mon" className="xl">Check All Mon</Link></li>
+                                <li><Link to="/surprise-me" className="xl">Surprise Me</Link></li>
                             </ul>
                         </nav>
 
@@ -101,96 +65,16 @@ function Header() {
                                 </label>
                             </div>
 
-                            <a href="signin.html" data-todo-colon-className="{ 'nk yl' : page === 'home', 'ok' : page === 'home' && stickyMenu }"
-                                className="ek pk xl">Sign In</a>
-                            <a href="signup.html" data-todo-colon-className="{ 'hh/[0.15]' : page === 'home', 'sh' : page === 'home' && stickyMenu }"
-                                className="lk gh dk rg tc wf xf _l gi hi">Sign Up</a>
+                            {/* <a href="signin.html" data-todo-colon-className="{ 'nk yl' : page === 'home', 'ok' : page === 'home' && stickyMenu }"
+                                className="ek pk xl">Sign In</a> */}
+                            <Link to="/whos-that" data-todo-colon-className="{ 'hh/[0.15]' : page === 'home', 'sh' : page === 'home' && stickyMenu }"
+                                className="lk gh dk rg tc wf xf _l gi hi">Who's that mon?</Link>
                         </div>
                     </div>
                 </div>
             </header>
 
-            <section className="gj do ir hj sp jr i pg">
-                {/* Hero Images */}
-                <div className="poke_hero_img_box xc fn zd/2 2xl:ud-w-187.5 bd 2xl:ud-h-171.5 h q r">
-                    <img src="./images/shape-01.svg" alt="shape" className="xc 2xl:ud-block h t -ud-left-[10%] ua" />
-                    <img src="./images/shape-02.svg" alt="shape" className="xc 2xl:ud-block h u p va" />
-                    <img src="./images/shape-03.svg" alt="shape" className="xc 2xl:ud-block h v w va" />
-                    <img src="./images/shape-04.svg" alt="shape" className="h q r" />
-                    <img className="hero_poke_img" src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokeData?.id}.png`} alt="Woman" />
-                    {/* <img className="hero_poke_img" src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/${pokeData?.id}.png`} alt="Woman" /> */}
-                    {/* <img className="hero_poke_img" src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${pokeData?.id}.svg`} alt="Woman" /> */}
-                </div>
-
-                {/* Hero Content */}
-                <div className="bb ze ki xn 2xl:ud-px-0">
-                    <div className="tc _o">
-                        <div className="animate_left jn/2">
-                            <h1 className="fk vj zp or kk wm wb poke_name_hero">{pokeData?.name}</h1>
-                            <p className="fq">{pokeData?.flavor_text_entries[0]?.flavor_text}</p>
-
-                            <div className="tc tf yo zf mb">
-                                <a href="/" className="ek jk lk gh gi hi rg ml il vc _d _l">Explore {pokeData?.name}</a>
-
-                                <span className="hide_me">
-                                    <a href="/" className="inline-block ek xj kk wm"> Call us (0123) 456 – 789 </a>
-                                    <span className="inline-block">For any question or concern</span>
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-
-            <section id="features" className='features_box'>
-                <div className="bb ze ki yn 2xl:ud-px-12.5">
-                    <div className="tc uf zo xf ap zf bp mq">
-
-                        {/* Small Features Item */}
-                        <div className="animate_top kn to/3 tc cg oq">
-                            <div className="tc wf xf cf ae cd rg oh">
-                                <img src="./images/icon-03.svg" alt="Icon" />
-                            </div>
-                            <div>
-                                <h4 className="ek yj go kk wm xb">{
-                                    pokeDataMore?.types?.map((item, index) => (
-                                        <>
-
-                                            <span className='hero_type_box'>{item?.type?.name}</span>
-
-                                        </>
-                                    ))
-                                }</h4>
-                                <p>Types</p>
-                            </div>
-                        </div>
-                        {/* Small Features Item */}
-                        <div className="animate_top kn to/3 tc cg oq">
-                            <div className="tc wf xf cf ae cd rg mh">
-                                <img src="./images/icon-01.svg" alt="Icon" />
-                            </div>
-                            <div>
-                                <h4 className="ek yj go kk wm xb">{pokeDataMore?.height}</h4>
-                                <p>Height</p>
-                            </div>
-                        </div>
-
-                        {/* Small Features Item */}
-                        <div className="animate_top kn to/3 tc cg oq">
-                            <div className="tc wf xf cf ae cd rg nh">
-                                <img src="./images/icon-02.svg" alt="Icon" />
-                            </div>
-                            <div>
-                                <h4 className="ek yj go kk wm xb">{pokeDataMore?.weight}</h4>
-                                <p>Weight</p>
-                            </div>
-                        </div>
-
-
-                    </div>
-                </div>
-            </section>
+            
 
         </>
 

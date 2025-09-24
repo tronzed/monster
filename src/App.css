@@ -54,3 +54,9 @@
 .type_item_box {
     text-align: center;
 }
+
+.logo_box {
+    font-size: 28px;
+    font-weight: 600;
+    color: rgb(78 107 255 / var(--tw-bg-opacity));
+}
