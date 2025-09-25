@@ -60,3 +60,7 @@
     font-weight: 600;
     color: rgb(78 107 255 / var(--tw-bg-opacity));
 }
+
+.gallery_img_box {
+    display: flex;
+}

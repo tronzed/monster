@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import { Link } from "react-router-dom";
 
 function ListPoke() {
 
@@ -10,7 +11,7 @@ function ListPoke() {
 
     const getPokeList = async () => {
 
-        const res = await fetch(`https://pokeapi.co/api/v2/pokemon/?limit=100/`);
+        const res = await fetch(`https://pokeapi.co/api/v2/pokemon/?limit=1000/`);
         const data = await res.json();
         setPokeList(data?.results);
 
@@ -38,9 +39,8 @@ function ListPoke() {
                                         <div className="animate_top sg vk rm xm">
                                             <div className="c rc i z-1 pg">
                                                 <img className="w-full" src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${index + 1}.png`} alt="Blog" />
-
                                                 <div className="im h r s df vd yc wg tc wf xf al hh/20 nl il z-10">
-                                                    <a href="./blog-single.html" className="vc ek rg lk gh sl ml il gi hi">Read More</a>
+                                                    <Link to={`/single/${index + 1}`} className="vc ek rg lk gh sl ml il gi hi">Read More</Link>
                                                 </div>
                                             </div>
 
