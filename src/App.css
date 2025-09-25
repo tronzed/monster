@@ -67,7 +67,7 @@
 
 .who_poke_box {
     background-color: #ff4618;
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -84,5 +84,48 @@
     right: 0;
     bottom: 0;
     margin: auto;
+    transition: ease all 0.5s;
+}
+
+.who_poke_box .spark_box .hide_poke {
     filter: brightness(0.09);
+    transform: scale(1.2);
+}
+
+.btn {
+    background-color: #ffcb05;
+    color: #000;
+    padding: 10px 27px;
+    border-radius: 100px;
+    font-size: 22px;
+    border: 8px solid #395ea8;
+    font-weight: 800;
+}
+
+.who_button_box {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+
+@media screen and (max-width:767px) {
+    .header_box {
+        position: relative !important;
+    }
+
+    .who_poke_box {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .poke_img {
+        width: 50vw;
+    }
+
+    .qmark_box {
+        max-width: 45px;
+    }
+
+
 }

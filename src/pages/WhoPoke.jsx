@@ -1,24 +1,47 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 
 function WhoPoke() {
 
 
+    const [playBtn, setPlayBtn] = useState(true);
+
     const [pokeData, setPokeData] = useState();
+    const [hidePoke, setHidePoke] = useState(true);
+    const audioRef = useRef(null);
+
 
     const getPokeData = async () => {
-
-        let num = Math.floor(Math.random() * (50 - 1 + 1)) + 1;
+        setHidePoke(true);
+        setPlayBtn(true)
+        let num = Math.floor(Math.random() * (150 - 1 + 1)) + 1;
 
         const res = await fetch(`https://pokeapi.co/api/v2/pokemon-species/${num}`);
         const data = await res.json();
         setPokeData(data);
+    }
+
+
+    function showpoke(text) {
+
+        const utterance = new SpeechSynthesisUtterance(text);
+        audioRef.current.play();
+
+        setPlayBtn(false);
+
+        setTimeout(() => {
+            setHidePoke(false);
+            speechSynthesis.speak(utterance);
+
+        }, 10000)
 
     }
 
+
     useEffect(() => {
         getPokeData();
+        // showpoke();
     }, []);
 
     return (
@@ -30,11 +53,32 @@ function WhoPoke() {
 
                 <div className="spark_box">
                     <img className="spark_img" src="../images/spark.gif" alt="" />
-                    <img className="poke_img" src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokeData?.id}.png`} alt="Woman" />
+                    <img className={`big_img poke_img   ${hidePoke ? "hide_poke" : ""}`} src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokeData?.id}.png`} alt="Woman" />
                 </div>
+
+                <div className="who_button_box">
+
+                    {
+
+                        playBtn == true ?
+
+                            <>
+                                <button className="btn" onClick={() => showpoke(pokeData?.name)}>Play</button>
+                            </>
+                            :
+                            <>
+                                <button className="btn" onClick={getPokeData}>Rest</button>
+                            </>
+
+                    }
+
+                </div>
+
                 <div className="qmark_box">
                     <img src="../images/qmark.png" alt="" />
                 </div>
+
+                <audio ref={audioRef} src="../sound/who_poke_sound.mp3" />
 
             </div>
 

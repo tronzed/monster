@@ -3,8 +3,11 @@ import { Link } from "react-router-dom";
 
 function Header() {
 
+    const [menu, setMenu] = useState(false);
 
-    
+    function menuToggle() {
+        setMenu(!menu);
+    }
 
     useEffect(() => {
     }, []);
@@ -13,7 +16,7 @@ function Header() {
 
         <>
 
-            <header className="g s r vd ya cj hh sm _k dj bl ll" data-todo-colon-className="{ 'hh sm _k dj bl ll' : stickyMenu }"
+            <header className="header_box g s r vd ya cj hh sm _k dj bl ll" data-todo-colon-className="{ 'hh sm _k dj bl ll' : stickyMenu }"
                 data-todo-at-scroll-window="stickyMenu = (window.pageYOffset > 20) ? true : false">
                 <div className="bb ze ki xn 2xl:ud-px-0 oo wf yf i">
                     <div className="vd to/4 tc wf yf">
@@ -24,7 +27,7 @@ function Header() {
                         </Link>
 
                         {/* Hamburger Toggle BTN */}
-                        <button className="po rc" data-todo-at-click="navigationOpen = !navigationOpen">
+                        <button onClick={menuToggle} className="po rc">
                             <span className="rc i pf re pd">
                                 <span className="du-block h q vd yc">
                                     <span className="rc i r s eh um tg te rd eb ml jl dl" data-todo-colon-className="{ 'ue el': !navigationOpen }"></span>
@@ -40,7 +43,7 @@ function Header() {
                         {/* Hamburger Toggle BTN */}
                     </div>
 
-                    <div className="vd wo/4 sd qo f ho oo wf yf" data-todo-colon-className="{ 'd hh rm sr td ud qg ug jc yh': navigationOpen }">
+                    <div className={menu == true ? "vd wo/4 sd qo f ho oo wf yf d hh rm sr td ud qg ug jc yh" : "vd wo/4 sd qo f ho oo wf yf"}>
                         <nav>
                             <ul className="tc _o sf yo cg ep">
                                 <li><Link to="/" className="xl">Home</Link></li>
@@ -74,7 +77,7 @@ function Header() {
                 </div>
             </header>
 
-            
+
 
         </>
 
