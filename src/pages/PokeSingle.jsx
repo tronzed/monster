@@ -10,6 +10,7 @@ function PokeSingle() {
 
     const [pokeData, setPokeData] = useState();
     const [pokeDataMore, setPokeDataMore] = useState();
+    const [eveoData, setEveoData] = useState();
 
     const getPokeData = async () => {
         const res = await fetch(`https://pokeapi.co/api/v2/pokemon-species/${id}`);
@@ -19,6 +20,11 @@ function PokeSingle() {
         const res2 = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`);
         const data2 = await res2.json();
         setPokeDataMore(data2);
+
+
+        const res3 = await fetch(`https://pokeapi.co/api/v2/evolution-chain/3/`);
+        const data3 = await res3.json();
+        setEveoData(data3);
 
 
     }
@@ -35,6 +41,7 @@ function PokeSingle() {
 
             {console.log(pokeData, '---------pokeData----------')}
             {console.log(pokeDataMore, '---------pokeDataMore----------')}
+            {console.log(eveoData, '---------eveoData----------')}
 
 
             <section className="gj do ir hj sp jr i pg">
@@ -65,13 +72,12 @@ function PokeSingle() {
 
                             </div>
 
-                                <div className="gallery_img_box">
+                            {/* <div className="gallery_img_box hide_me">
                                     <img src={pokeDataMore?.sprites?.back_default} alt="" />
                                     <img src={pokeDataMore?.sprites?.back_shiny} alt="" />
                                     <img src={pokeDataMore?.sprites?.front_default} alt="" />
                                     <img src={pokeDataMore?.sprites?.front_shiny} alt="" />
-                                 
-                                </div>
+                                </div> */}
 
 
                             <h1 className="fk vj zp or kk wm wb poke_name_hero">{pokeData?.name}</h1>
@@ -165,11 +171,11 @@ function PokeSingle() {
                             </div>
                             <div>
                                 <h4 className="ek yj go kk wm xb">{
-                                
-                                
-                                pokeData?.gender_rate == 1 ? "Male":"Female"
-                                
-                                
+
+
+                                    pokeData?.gender_rate == 1 ? "Male" : "Female"
+
+
                                 }</h4>
                                 <p>Gender</p>
                             </div>
@@ -180,10 +186,42 @@ function PokeSingle() {
                 </div>
             </section>
 
-            <main>
 
+            <section class="i pg qh rm ji hp">
+                <img src="../images/shape-11.svg" alt="Shape" class="of h ga ha ke" />
+                <img src="../images/shape-07.svg" alt="Shape" class="h ia o ae jf" />
+                <img src="../images/shape-14.svg" alt="Shape" class="h ja ka" />
+                <img src="../images/shape-15.svg" alt="Shape" class="h q p" />
 
-            </main>
+                <div class="bb ze i va ki xn br">
+                    <div class="tc uf sn tn xf un gg">
+                        <div class="animate_top me/5 ln rj">
+                            <h2 class="gk vj zp or kk wm hc">{pokeDataMore?.stats[0]?.base_stat}</h2>
+                            <p class="ek bk aq">HP</p>
+                        </div>
+                        <div class="animate_top me/5 ln rj">
+                            <h2 class="gk vj zp or kk wm hc">{pokeDataMore?.stats[1]?.base_stat}</h2>
+                            <p class="ek bk aq">Attack</p>
+                        </div>
+                        <div class="animate_top me/5 ln rj">
+                            <h2 class="gk vj zp or kk wm hc">{pokeDataMore?.stats[2]?.base_stat}</h2>
+                            <p class="ek bk aq">Defense</p>
+                        </div>
+                        {/* <div class="animate_top me/5 ln rj">
+                            <h2 class="gk vj zp or kk wm hc">346</h2>
+                            <p class="ek bk aq">Special Attack</p>
+                        </div>
+                        <div class="animate_top me/5 ln rj">
+                            <h2 class="gk vj zp or kk wm hc">865</h2>
+                            <p class="ek bk aq">Special Defense</p>
+                        </div> */}
+                        <div class="animate_top me/5 ln rj">
+                            <h2 class="gk vj zp or kk wm hc">{pokeDataMore?.stats[5]?.base_stat}</h2>
+                            <p class="ek bk aq">Speed</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
             <Footer />
 
