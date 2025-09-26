@@ -1,10 +1,12 @@
 
-function Loader() {
+function Loader({ loader }) {
+
+    if (!loader) return null;
 
     return (
         <>
 
-        <div className="loader_box"></div>
+            <div className="loader_box"></div>
 
         </>
 

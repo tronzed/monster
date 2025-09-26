@@ -2,12 +2,14 @@ import { useEffect, useState } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { useParams } from "react-router-dom";
+import Loader from "../components/Loader";
 
 function SurpriseMe() {
 
 
     const [pokeData, setPokeData] = useState();
     const [pokeDataMore, setPokeDataMore] = useState();
+    const [loader, setLoader] = useState(true);
 
     const getPokeData = async () => {
 
@@ -21,6 +23,7 @@ function SurpriseMe() {
         const data2 = await res2.json();
         setPokeDataMore(data2);
 
+        setLoader(false);
 
     }
 
@@ -33,6 +36,7 @@ function SurpriseMe() {
 
             <Header />
 
+            <Loader loader={loader} />
 
             {console.log(pokeData, '---------pokeData----------')}
             {console.log(pokeDataMore, '---------pokeDataMore----------')}

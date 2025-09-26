@@ -108,6 +108,22 @@
     gap: 30px;
 }
 
+.list_box_container {
+    padding: 0 15px;
+}
+
+.loader_box {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(250, 250, 250, 0.9);
+    z-index: 999999999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 @media screen and (max-width:767px) {
     .header_box {

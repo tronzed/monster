@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
+import Loader from "../components/Loader";
 
 function PokeSingle() {
 
@@ -10,7 +11,10 @@ function PokeSingle() {
 
     const [pokeData, setPokeData] = useState();
     const [pokeDataMore, setPokeDataMore] = useState();
-    const [eveoData, setEveoData] = useState();
+    const [eveoData, setEveoData] = useState([]);
+
+    const [loader, setLoader] = useState(true);
+
 
     const getPokeData = async () => {
         const res = await fetch(`https://pokeapi.co/api/v2/pokemon-species/${id}`);
@@ -22,26 +26,36 @@ function PokeSingle() {
         setPokeDataMore(data2);
 
 
-        const res3 = await fetch(`https://pokeapi.co/api/v2/evolution-chain/3/`);
+        const res3 = await fetch(data?.evolution_chain.url);
         const data3 = await res3.json();
-        setEveoData(data3);
 
+        const arrbox = [];
+
+        arrbox.push({ "name": data3.chain.species.name, "id": data3.chain.species.url.split("/").filter(Boolean).pop() });
+        arrbox.push({ "name": data3.chain.evolves_to[0].species.name, "id": data3.chain.evolves_to[0].species.url.split("/").filter(Boolean).pop() });
+        arrbox.push({ "name": data3?.chain?.evolves_to[0]?.evolves_to[0]?.species?.name, "id": data3?.chain?.evolves_to[0]?.evolves_to[0]?.species?.url.split("/").filter(Boolean).pop() });
+
+
+        setEveoData(arrbox);
+        setLoader(false);
 
     }
 
     useEffect(() => {
+        window.scrollTo(0, 0);
         getPokeData();
-    }, []);
+    }, [id]);
 
     return (
         <>
 
             <Header />
 
+            <Loader loader={loader} />
 
             {console.log(pokeData, '---------pokeData----------')}
-            {console.log(pokeDataMore, '---------pokeDataMore----------')}
-            {console.log(eveoData, '---------eveoData----------')}
+            {/* {console.log(pokeDataMore, '---------pokeDataMore----------')} */}
+            {/* {console.log(eveoData, '---------eveoData----------')} */}
 
 
             <section className="gj do ir hj sp jr i pg">
@@ -186,6 +200,73 @@ function PokeSingle() {
                 </div>
             </section>
 
+            {/* ===== Team Start ===== */}
+            <section className="i pg ji gp uq">
+                {/* Bg Shapes */}
+                <span className="rc h s r vd fd/5 fh rm"></span>
+                <img src="../images/shape-08.svg" alt="Shape Bg" className="h q r" />
+                <img src="../images/shape-09.svg" alt="Shape" className="of h y z/2" />
+                <img src="../images/shape-10.svg" alt="Shape" className="h _ aa" />
+                <img src="../images/shape-11.svg" alt="Shape" className="of h m ba" />
+
+                {/* Section Title Start */}
+                <div>
+                    <div className="show_box bb ze rj ki xn vq">
+                        <h2 className="fk vj pr kk wm on/5 gq/2 bb _b">Evolution</h2>
+                        <p className="bb on/5 wo/5 hq">Witness the incredible journey of Pokémon Evolution. From small beginnings to mighty transformations, each stage unlocks new powers.</p>
+                    </div>
+                </div>
+                {/* Section Title End */}
+
+                <div className="bb ze i va ki xn xq jb jo">
+                    <div className="wc qf pn xo gg cp">
+
+                        {
+                            eveoData?.map((item, index) => (
+                                <>
+
+                                    {item.name && (
+
+                                        <>
+
+                                            {/* Team Item */}
+                                            <div className="animate_top rj">
+                                                <div className="c i pg z-1">
+                                                    <img className="vd" src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${item.id}.png`} alt="Team" />
+
+                                                    <div className="ef im nl il">
+                                                        <span className="h -ud-left-5 -ud-bottom-21 rc de gd gh if wa"></span>
+                                                        <span className="h s p rc vd hd mh va"></span>
+                                                        <div className="h s p vd ij jj xa">
+                                                            <ul className="tc xf wf gg">
+                                                                <li>
+                                                                    <Link className='item_read_more_btn' to={`/single/${item.id}`}>Explore {item.name}</Link>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <h4 className="yj go kk wm ob zb">{item.name}</h4>
+                                            </div>
+
+
+                                        </>
+
+                                    )}
+
+
+
+
+
+
+                                </>
+                            ))
+                        }
+
+                    </div>
+                </div>
+            </section>
+            {/* ===== Team End ===== */}
 
             <section class="i pg qh rm ji hp">
                 <img src="../images/shape-11.svg" alt="Shape" class="of h ga ha ke" />
@@ -222,6 +303,9 @@ function PokeSingle() {
                     </div>
                 </div>
             </section>
+
+
+
 
             <Footer />
 

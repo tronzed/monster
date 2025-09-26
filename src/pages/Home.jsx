@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import Loader from "../components/Loader";
 
 function Home() {
 
@@ -10,6 +11,10 @@ function Home() {
 
     const [pokeData, setPokeData] = useState();
     const [pokeDataMore, setPokeDataMore] = useState();
+
+
+    const [loader, setLoader] = useState(true);
+
 
     const getPokeData = async () => {
         let num = Math.floor(Math.random() * (50 - 1 + 1)) + 1;
@@ -36,8 +41,8 @@ function Home() {
         const data2 = await res2.json();
         setPokeType(data2?.results);
 
+        setLoader(false);
     }
-
 
     useEffect(() => {
         getPokeData();
@@ -49,6 +54,7 @@ function Home() {
 
             <Header />
 
+            <Loader loader={loader} />
 
             <section className="gj do ir hj sp jr i pg">
                 {/* Hero Images */}

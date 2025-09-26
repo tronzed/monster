@@ -2,11 +2,13 @@ import { useEffect, useState } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { Link } from "react-router-dom";
+import Loader from "../components/Loader";
 
 function ListPoke() {
 
 
     const [pokeList, setPokeList] = useState();
+    const [loader, setLoader] = useState(true);
 
 
     const getPokeList = async () => {
@@ -14,6 +16,8 @@ function ListPoke() {
         const res = await fetch(`https://pokeapi.co/api/v2/pokemon/?limit=1000/`);
         const data = await res.json();
         setPokeList(data?.results);
+
+        setLoader(false);
 
     }
 
@@ -27,10 +31,12 @@ function ListPoke() {
 
             <Header />
 
+            <Loader loader={loader} />
+
             <main>
                 <section className="ji gp uq">
-                    <div className="bb ye ki xn vq jb jo">
-                        <div className="wc qf pn xo zf iq">
+                    <div className="list_box_container">
+                        <div className="wc qf pn xo list_box zf iq">
 
                             {
                                 pokeList?.map((item, index) => (
@@ -40,7 +46,7 @@ function ListPoke() {
                                             <div className="c rc i z-1 pg">
                                                 <img className="w-full" src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${index + 1}.png`} alt="Blog" />
                                                 <div className="im h r s df vd yc wg tc wf xf al hh/20 nl il z-10">
-                                                    <Link to={`/single/${index + 1}`} className="vc ek rg lk gh sl ml il gi hi">Read More</Link>
+                                                    <Link to={`/single/${index + 1}`} className="vc ek rg lk gh sl ml il gi hi">View</Link>
                                                 </div>
                                             </div>
 

@@ -33,22 +33,24 @@ https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/version
 
 
 
+x Category
 
+x Abilities
 
-Category
+x Gender
 
-Abilities
-
-Gender
-
-Weaknesses
-
-Stats
-
-
-
-
+x Stats
 
 Evolutions
+
+
+----------------
+
+
+- add google ads snances 
+
+- loader 
+
+- Evolutions
 
 

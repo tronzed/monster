@@ -1,11 +1,13 @@
 import { useEffect, useRef, useState } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import Loader from "../components/Loader";
 
 function WhoPoke() {
 
 
     const [playBtn, setPlayBtn] = useState(true);
+    const [loader, setLoader] = useState(true);
 
     const [pokeData, setPokeData] = useState();
     const [hidePoke, setHidePoke] = useState(true);
@@ -20,6 +22,9 @@ function WhoPoke() {
         const res = await fetch(`https://pokeapi.co/api/v2/pokemon-species/${num}`);
         const data = await res.json();
         setPokeData(data);
+
+
+        setLoader(false);
     }
 
 
@@ -33,8 +38,7 @@ function WhoPoke() {
         setTimeout(() => {
             setHidePoke(false);
             speechSynthesis.speak(utterance);
-
-        }, 10000)
+        }, 7000)
 
     }
 
@@ -48,6 +52,9 @@ function WhoPoke() {
         <>
 
             <Header />
+
+            <Loader loader={loader} />
+
 
             <div className="who_poke_box">
 
@@ -67,7 +74,7 @@ function WhoPoke() {
                             </>
                             :
                             <>
-                                <button className="btn" onClick={getPokeData}>Rest</button>
+                                <button className="btn" onClick={() => { getPokeData(); setLoader(true); }}>Rest</button>
                             </>
 
                     }

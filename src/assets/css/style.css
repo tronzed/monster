@@ -2213,6 +2213,10 @@ h1,  h2,  h3,  h4,  h5,  h6{
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
+  .xo.list_box{
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+
   .yo{
     flex-direction: row;
   }
