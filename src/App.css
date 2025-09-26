@@ -118,7 +118,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(250, 250, 250, 0.9);
+    background-color: rgba(250, 250, 250, 0.95);
     z-index: 999999999;
     display: flex;
     justify-content: center;
@@ -129,6 +129,31 @@
     max-width: 80px;
 }
 
+.audio_box {
+    display: none;
+}
+
+.sound_play_btn {
+    border: 2px solid #4e6bff;
+    padding: 3px 14px;
+    border-radius: 8px;
+    margin: 18px 0 8px;
+    color: #000;
+    font-size: 15px;
+}
+
+.sound_play_btn:hover {
+    border: 2px solid #4e6bff;
+    background-color: #4e6bff;
+    color: #fff;
+}
+
+.random_cover {
+    display: flex;
+    justify-content: end;
+    margin-bottom: 35px;
+}
+
 @media screen and (max-width:767px) {
     .header_box {
         position: relative !important;
@@ -137,6 +162,7 @@
     .who_poke_box {
         flex-direction: column;
         gap: 20px;
+        justify-content: center;
     }
 
     .poke_img {
@@ -145,6 +171,10 @@
 
     .qmark_box {
         max-width: 45px;
+    }
+
+    .who_button_box {
+        width: 70%;
     }
 
 

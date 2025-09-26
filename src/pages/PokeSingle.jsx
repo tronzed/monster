@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { Link, useParams } from "react-router-dom";
@@ -8,6 +8,8 @@ function PokeSingle() {
 
 
     const { id } = useParams();
+
+    const audioRef = useRef(null);
 
     const [pokeData, setPokeData] = useState();
     const [pokeDataMore, setPokeDataMore] = useState();
@@ -32,16 +34,24 @@ function PokeSingle() {
         const arrbox = [];
 
         arrbox.push({ "name": data3.chain.species.name, "id": data3.chain.species.url.split("/").filter(Boolean).pop() });
-        arrbox.push({ "name": data3.chain.evolves_to[0].species.name, "id": data3.chain.evolves_to[0].species.url.split("/").filter(Boolean).pop() });
+        arrbox.push({ "name": data3?.chain?.evolves_to[0]?.species.name, "id": data3?.chain?.evolves_to[0]?.species?.url.split("/").filter(Boolean).pop() });
         arrbox.push({ "name": data3?.chain?.evolves_to[0]?.evolves_to[0]?.species?.name, "id": data3?.chain?.evolves_to[0]?.evolves_to[0]?.species?.url.split("/").filter(Boolean).pop() });
 
 
         setEveoData(arrbox);
-        setLoader(false);
+        setTimeout(() => {
+            setLoader(false);
+        }, 2000)
 
     }
 
+
+    const handlePlay = () => {
+        audioRef.current.play();
+    };
+
     useEffect(() => {
+
         window.scrollTo(0, 0);
         getPokeData();
     }, [id]);
@@ -77,12 +87,14 @@ function PokeSingle() {
                             <div className="gif_img_box">
                                 <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/${id}.gif`} alt="" />
 
-                                {pokeDataMore?.cries?.latest && (
-                                    <audio controls>
-                                        <source src={pokeDataMore.cries.latest} type="audio/ogg" />
-                                        Your browser does not support the audio element.
-                                    </audio>
-                                )}
+                                <div className="audio_box">
+                                    {pokeDataMore?.cries?.latest && (
+                                        <audio ref={audioRef} controls>
+                                            <source src={pokeDataMore.cries.latest} type="audio/ogg" />
+                                            Your browser does not support the audio element.
+                                        </audio>
+                                    )}
+                                </div>
 
                             </div>
 
@@ -93,9 +105,9 @@ function PokeSingle() {
                                     <img src={pokeDataMore?.sprites?.front_shiny} alt="" />
                                 </div> */}
 
-
                             <h1 className="fk vj zp or kk wm wb poke_name_hero">{pokeData?.name}</h1>
                             <p className="fq">{pokeData?.flavor_text_entries[0]?.flavor_text}</p>
+                            <button className="sound_play_btn" onClick={handlePlay}>Play Sound</button>
 
 
                         </div>

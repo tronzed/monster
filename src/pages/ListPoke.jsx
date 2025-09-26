@@ -11,15 +11,22 @@ function ListPoke() {
     const [loader, setLoader] = useState(true);
 
 
-    const getPokeList = async () => {
-
-        const res = await fetch(`https://pokeapi.co/api/v2/pokemon/?limit=1000/`);
+    const getPokeList = async (random_val) => {
+        const res = await fetch(`https://pokeapi.co/api/v2/pokemon/?limit=1000`);
         const data = await res.json();
-        setPokeList(data?.results);
 
-        setLoader(false);
+        if (random_val) {
+            const shuffleArray = (arr) => arr.sort(() => Math.random() - 0.5);
+            setPokeList(shuffleArray([...data.results]));
+        } else {
+            setPokeList(data?.results);
 
-    }
+        }
+
+        setTimeout(() => {
+            setLoader(false);
+        }, 2000);
+    };
 
 
     useEffect(() => {
@@ -29,6 +36,9 @@ function ListPoke() {
     return (
         <>
 
+
+            {console.log(pokeList, '===================pokeList================')}
+
             <Header />
 
             <Loader loader={loader} />
@@ -36,17 +46,21 @@ function ListPoke() {
             <main>
                 <section className="ji gp uq">
                     <div className="list_box_container">
-                        <div className="wc qf pn xo list_box zf iq">
+                        <div className="random_cover">
 
+                            <button onClick={() => { setLoader(true); getPokeList(true); }} className="sound_play_btn">Make List Random</button>
+
+                        </div>
+                        <div className="wc qf pn xo list_box zf iq">
                             {
                                 pokeList?.map((item, index) => (
                                     <>
 
                                         <div className="animate_top sg vk rm xm">
                                             <div className="c rc i z-1 pg">
-                                                <img className="w-full" src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${index + 1}.png`} alt="Blog" />
+                                                <img className="w-full" src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${item?.url.split("/").filter(Boolean).pop()}.png`} alt="Blog" />
                                                 <div className="im h r s df vd yc wg tc wf xf al hh/20 nl il z-10">
-                                                    <Link to={`/single/${index + 1}`} className="vc ek rg lk gh sl ml il gi hi">View</Link>
+                                                    <Link to={`/single/${item?.url.split("/").filter(Boolean).pop()}`} className="vc ek rg lk gh sl ml il gi hi">View</Link>
                                                 </div>
                                             </div>
 
@@ -54,11 +68,11 @@ function ListPoke() {
                                                 <div className="tc uf wf ag jq">
                                                     <div className="tc wf ag">
                                                         <img src="images/icon-man.svg" alt="User" />
-                                                        <p>ID: {index + 1}</p>
+                                                        <p>ID: {item?.url.split("/").filter(Boolean).pop()}</p>
                                                     </div>
                                                 </div>
                                                 <h4 className="ek tj ml il kk wm xl eq lb">
-                                                    <a href="blog-single.html">{item?.name}</a>
+                                                    <Link to={`/single/${item?.url.split("/").filter(Boolean).pop()}`}>{item?.name}</Link>
                                                 </h4>
                                             </div>
                                         </div>

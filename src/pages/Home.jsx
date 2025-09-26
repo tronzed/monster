@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import Loader from "../components/Loader";
+import { Link } from "react-router-dom";
 
 function Home() {
 
@@ -41,7 +42,9 @@ function Home() {
         const data2 = await res2.json();
         setPokeType(data2?.results);
 
-        setLoader(false);
+        setTimeout(() => {
+            setLoader(false);
+        }, 2000)
     }
 
     useEffect(() => {
@@ -76,7 +79,7 @@ function Home() {
                             <p className="fq">{pokeData?.flavor_text_entries[0]?.flavor_text}</p>
 
                             <div className="tc tf yo zf mb">
-                                <a href="/" className="ek jk lk gh gi hi rg ml il vc _d _l">Explore {pokeData?.name}</a>
+                                <Link to={`/single/${pokeData?.id}`} className="ek jk lk gh gi hi rg ml il vc _d _l">Explore {pokeData?.name}</Link>
 
                                 <span className="hide_me">
                                     <a href="/" className="inline-block ek xj kk wm"> Call us (0123) 456 – 789 </a>
@@ -214,7 +217,7 @@ function Home() {
                                                     <div className="h s p vd ij jj xa">
                                                         <ul className="tc xf wf gg">
                                                             <li>
-                                                                <a className='item_read_more_btn' href="/">Explore {item?.name}</a>
+                                                                <Link className='item_read_more_btn' to={`/single/${index + 1}`}>Explore {item?.name}</Link>
                                                             </li>
                                                         </ul>
                                                     </div>

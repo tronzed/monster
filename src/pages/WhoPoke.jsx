@@ -24,11 +24,13 @@ function WhoPoke() {
         setPokeData(data);
 
 
-        const utterance = new SpeechSynthesisUtterance(" ");
+        const utterance = new SpeechSynthesisUtterance(".");
         speechSynthesis.speak(utterance);
 
 
-        setLoader(false);
+        setTimeout(() => {
+            setLoader(false);
+        }, 2000)
     }
 
 
@@ -43,7 +45,6 @@ function WhoPoke() {
             setHidePoke(false);
             speechSynthesis.speak(utterance);
         }, 7000)
-
 
 
     }
