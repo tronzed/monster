@@ -125,6 +125,10 @@
     align-items: center;
 }
 
+.lot_box {
+    max-width: 80px;
+}
+
 @media screen and (max-width:767px) {
     .header_box {
         position: relative !important;

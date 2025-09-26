@@ -1,3 +1,6 @@
+import Lottie from "lottie-react";
+
+import animationData from "../assets/images/loader/poke_ball_load.json";
 
 function Loader({ loader }) {
 
@@ -6,7 +9,11 @@ function Loader({ loader }) {
     return (
         <>
 
-            <div className="loader_box"></div>
+            <div className="loader_box">
+                <div className="lot_box">
+                    <Lottie animationData={animationData} loop={true} />
+                </div>
+            </div>
 
         </>
 
