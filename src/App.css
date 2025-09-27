@@ -154,6 +154,24 @@
     margin-bottom: 35px;
 }
 
+.spark_box h3.who_poke_name {
+    font-size: 54px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+    text-transform: capitalize;
+    color: #fff;
+    font-weight: 700;
+    text-shadow: 0 3px 29px #000;
+    transition: ease all 0.5s;
+}
+
+.hide_poke+.who_poke_name {
+    opacity: 0;
+}
+
 @media screen and (max-width:767px) {
     .header_box {
         position: relative !important;
@@ -177,5 +195,9 @@
         width: 70%;
     }
 
+    .spark_box h3.who_poke_name {
+        font-size: 30px;
+        bottom: -8px;
+    }
 
 }

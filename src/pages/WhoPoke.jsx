@@ -13,6 +13,9 @@ function WhoPoke() {
     const [hidePoke, setHidePoke] = useState(true);
     const audioRef = useRef(null);
 
+    const [hideButtons, setHideButtons] = useState(true);
+
+
 
     const getPokeData = async () => {
         setHidePoke(true);
@@ -22,10 +25,6 @@ function WhoPoke() {
         const res = await fetch(`https://pokeapi.co/api/v2/pokemon-species/${num}`);
         const data = await res.json();
         setPokeData(data);
-
-
-        const utterance = new SpeechSynthesisUtterance(".");
-        speechSynthesis.speak(utterance);
 
 
         setTimeout(() => {
@@ -44,6 +43,7 @@ function WhoPoke() {
         setTimeout(() => {
             setHidePoke(false);
             speechSynthesis.speak(utterance);
+            setHideButtons(true)
         }, 7000)
 
 
@@ -63,26 +63,31 @@ function WhoPoke() {
             <Loader loader={loader} />
 
 
+
             <div className="who_poke_box">
 
                 <div className="spark_box">
                     <img className="spark_img" src="../images/spark.gif" alt="" />
                     <img className={`big_img poke_img   ${hidePoke ? "hide_poke" : ""}`} src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokeData?.id}.png`} alt="Woman" />
+                    <h3 className="who_poke_name">{pokeData?.name}</h3>
                 </div>
 
                 <div className="who_button_box">
 
                     {
 
-                        playBtn == true ?
+                        hideButtons && (
 
-                            <>
-                                <button className="btn" onClick={() => showpoke(pokeData?.name)}>Play</button>
-                            </>
-                            :
-                            <>
-                                <button className="btn" onClick={() => { getPokeData(); setLoader(true); }}>Rest</button>
-                            </>
+                            playBtn == true ?
+
+                                <>
+                                    <button className="btn" onClick={() => { showpoke(pokeData?.name); setHideButtons(false) }}>Play</button>
+                                </>
+                                :
+                                <>
+                                    <button className="btn" onClick={() => { getPokeData(); setLoader(true); }}>Rest</button>
+                                </>
+                        )
 
                     }
 
