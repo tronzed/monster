@@ -79,7 +79,6 @@ function WhoPoke() {
                         hideButtons && (
 
                             playBtn == true ?
-
                                 <>
                                     <button className="btn" onClick={() => { showpoke(pokeData?.name); setHideButtons(false) }}>Play</button>
                                 </>

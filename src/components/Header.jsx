@@ -21,8 +21,10 @@ function Header() {
                 <div className="bb ze ki xn 2xl:ud-px-0 oo wf yf i">
                     <div className="vd to/4 tc wf yf">
                         <Link to="/">
-                            {/* <img className="om" src="./images/logo-light.svg" alt="Logo Light" />
-                            <img className="xc nm" src="./images/logo-dark.svg" alt="Logo Dark" /> */}
+                            {/* <div className="logo_box">
+                                <img className="om" src="../images/mon_logo.png" alt="Logo Light" />
+                            </div> */}
+                            {/* <img className="xc nm" src="./images/logo-dark.svg" alt="Logo Dark" /> */}
                             <span className="logo_box">Monster</span>
                         </Link>
 

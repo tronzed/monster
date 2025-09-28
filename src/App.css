@@ -172,6 +172,10 @@
     opacity: 0;
 }
 
+.logo_box {
+    max-width: 150px;
+}
+
 @media screen and (max-width:767px) {
     .header_box {
         position: relative !important;
@@ -198,6 +202,21 @@
     .spark_box h3.who_poke_name {
         font-size: 30px;
         bottom: -8px;
+    }
+
+
+    .qf.list_box {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 10px;
+    }
+
+    .qf.list_box .yh {
+        padding: 10px;
+    }
+
+    .qf.list_box .yh h4 a {
+        font-size: 15px;
+        text-transform: capitalize;
     }
 
 }
