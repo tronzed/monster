@@ -176,6 +176,15 @@
     max-width: 150px;
 }
 
+body .poke_evo {
+    display: flex;
+    justify-content: center;
+}
+
+.poke_evo .rj {
+    max-width: 350px;
+}
+
 @media screen and (max-width:767px) {
     .header_box {
         position: relative !important;
@@ -218,5 +227,54 @@
         font-size: 15px;
         text-transform: capitalize;
     }
+
+    .qf.list_box .yh h4 {
+        margin: 0;
+        line-height: 15px;
+    }
+
+    .qf.list_box .yh .tc {
+        display: none;
+    }
+
+
+    .features_box .tc.uf {
+        justify-content: left;
+        gap: 10px;
+    }
+
+
+    .features_box .tc.uf .cg.oq img {
+        width: 25px;
+    }
+
+    .features_box .tc.uf .cg.oq>.tc {
+        width: 40px;
+        height: 40px;
+    }
+
+    .features_box .tc.uf .cg.oq {
+        gap: 10px;
+    }
+
+    .features_box .tc.uf .cg.oq h4 {
+        margin: 0;
+    }
+
+    .features_box {
+        margin-bottom: 20px;
+    }
+
+    .top_sec {
+        padding-bottom: 25px;
+    }
+
+
+    .xo {
+        place-items: center;
+    }
+
+
+
 
 }

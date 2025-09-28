@@ -68,7 +68,7 @@ function PokeSingle() {
             {/* {console.log(eveoData, '---------eveoData----------')} */}
 
 
-            <section className="gj do ir hj sp jr i pg">
+            <section className="gj do ir hj sp jr i pg top_sec">
                 {/* Hero Images */}
                 <div className="poke_hero_img_box xc fn zd/2 2xl:ud-w-187.5 bd 2xl:ud-h-171.5 h q r">
                     <img src="../images/shape-01.svg" alt="shape" className="xc 2xl:ud-block h t -ud-left-[10%] ua" />
@@ -230,8 +230,8 @@ function PokeSingle() {
                 </div>
                 {/* Section Title End */}
 
-                <div className="bb ze i va ki xn xq jb jo">
-                    <div className="wc qf pn xo gg cp">
+                <div className="bb ze i va ki xn xq jb jo ">
+                    <div className="wc qf pn xo gg cp poke_evo">
 
                         {
                             eveoData?.map((item, index) => (
