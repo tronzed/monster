@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 
 function Footer() {
 
@@ -162,14 +163,14 @@ function Footer() {
                     <div className="bh ch pm tc uf sf yo wf xf ap cg fp bj">
                         <div className="animate_top">
                             <ul className="tc wf gg">
-                                <li><a href="/" className="xl">English</a></li>
-                                <li><a href="/" className="xl">Privacy Policy</a></li>
-                                <li><a href="/" className="xl">Support</a></li>
+                                <li><Link to="/" className="xl">Home</Link></li>
+                                <li><Link to="/all-mon" className="xl">Check All Mon</Link></li>
+                                <li><Link to="/surprise-me" className="xl">Surprise Me</Link></li>
                             </ul>
                         </div>
 
                         <div className="animate_top">
-                            <p>© 2025 Base. All rights reserved</p>
+                            <p>© 2025 Monster. All rights reserved</p>
                         </div>
                     </div>
                     {/* Footer Bottom */}
