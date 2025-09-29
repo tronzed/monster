@@ -6,6 +6,7 @@ import ListPoke from './pages/ListPoke';
 import SurpriseMe from './pages/SurpriseMe';
 import WhoPoke from './pages/WhoPoke';
 import PokeSingle from './pages/PokeSingle';
+import NotFound from './pages/NotFound';
 
 function App() {
 
@@ -19,6 +20,7 @@ function App() {
           <Route path="/single/:id" element={<PokeSingle />} />
           <Route path="/surprise-me" element={<SurpriseMe />} />
           <Route path="/whos-that" element={<WhoPoke />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
 
